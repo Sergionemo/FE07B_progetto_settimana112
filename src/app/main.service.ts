@@ -35,7 +35,7 @@ export class MainService {
 
   removeFav(id: number) {
     return this.http.delete<Favoriti>(
-      `${environment.apiBaseUrl}/favorites${id}`
+      `${environment.apiBaseUrl}/favorites/${id}`
     );
   }
 

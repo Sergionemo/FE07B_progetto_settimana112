@@ -11,6 +11,12 @@
       "password": "$2a$10$e.rzIwwyDywEuNDrvXBaTuhjtWeUG/Le4U8FSpLsxfQWC6oonQYPa",
       "name": "Marco Polo",
       "id": 2
+    },
+    {
+      "email": "domenico@cultu.de",
+      "password": "$2a$10$pQGuHbgk82z05MKh5WSFveZprvjMNMiHF1NmNxvXSdBr1tdcAHujG",
+      "name": "domenico cultu",
+      "id": 3
     }
   ],
   "favorites": [
@@ -38,6 +44,21 @@
       "movieId": 791373,
       "userId": 1,
       "id": 6
+    },
+    {
+      "movieId": 578701,
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "movieId": 615457,
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "movieId": 460465,
+      "userId": 3,
+      "id": 9
     }
   ],
   "genres": [

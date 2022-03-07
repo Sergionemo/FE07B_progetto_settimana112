@@ -23,9 +23,9 @@ import { Movie } from '../models/movie';
         <mat-card-actions class="d-flex">
           <button mat-icon-button>
             <mat-icon
-              color="primary"
+              [color]="movie.id === favorites.movieId? 'primary':''"
               (click)="
-                confrontaFilm(movie.id) ? rimuovi(movie.id, i) : aggiungi(movie.id)
+                confrontaFilm(movie.id)
               "
               >favorite</mat-icon
             >
@@ -71,12 +71,20 @@ export class FilmPage implements OnInit {
       .toPromise();
   }
 
-  confrontaFilm(id: number) {
-    return this.favorites.some((film: any) => film.movieId == id);
+  async confrontaFilm(id: number) {
+    this.favorites = await this.mainSrv.findFav(this.user.id).toPromise();
+    const found = this.favorites.find((film: any) => film.movieId == id);
+    console.log(found);
+
+    if (found === undefined) {
+      this.aggiungi(id)
+    }
+    else {
+      this.rimuovi(found.id)
+    }
   }
 
-  async rimuovi(id: number, i:number) {
-    this.daRimuovere = await this.mainSrv.findFav(this.favorites[i].id);
-    await this.mainSrv.removeFav(id);
+  async rimuovi(id: number) {
+    await this.mainSrv.removeFav(id).toPromise();
   }
 }
